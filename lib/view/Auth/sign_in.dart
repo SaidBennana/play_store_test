@@ -15,7 +15,7 @@ class Sign_in extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 300,
+              height: 230,
               child: Image.asset("Assets/images/image_1.png"),
             ),
             Form(
@@ -26,13 +26,23 @@ class Sign_in extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsets.only(left: 20, top: 20, bottom: 20),
-                      child: Text(
-                        "Sign In:",
-                        textAlign: TextAlign.end,
-                        style: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.bold),
+                      padding: const EdgeInsets.only(top: 20, bottom: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Sign In",
+                            style: TextStyle(
+                                fontSize: 30, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "Signin to continue using the app  ",
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.black38,
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ],
                       ),
                     ),
                     Text(
@@ -44,13 +54,17 @@ class Sign_in extends StatelessWidget {
                       height: 10,
                     ),
                     SizedBox(
-                      height: 50,
+                      height: 60,
                       child: TextFormField(
                         decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.black.withOpacity(.05),
-                            hintText: "Enter Your Email",
-                            border: null),
+                          filled: true,
+                          fillColor: Colors.black.withOpacity(.05),
+                          hintText: "Enter Your Email",
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -67,14 +81,24 @@ class Sign_in extends StatelessWidget {
                       height: 10,
                     ),
                     SizedBox(
-                      height: 50,
+                      height: 60,
                       child: TextFormField(
                         decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.black.withOpacity(.05),
-                          hintText: "Enter Your Password",
-                          border: null,
+                          hintText: "Enter Password",
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
                         ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: InkWell(
+                        onTap: () {},
+                        child: Text("Forgot your password?"),
                       ),
                     ),
                     SizedBox(

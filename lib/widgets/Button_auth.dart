@@ -13,7 +13,7 @@ class Button_auth extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.blue[400],
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(20),
       ),
       height: 50,
       child: MaterialButton(

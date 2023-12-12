@@ -10,7 +10,7 @@ class Card_Auth_Other extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: 30),
+          padding: const EdgeInsets.only(top: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,10 +31,12 @@ class Card_Auth_Other extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.amber,
+                  image: DecorationImage(
+                    image: AssetImage("Assets/images/google.png"),
+                  ),
                 ),
-                width: 100,
-                height: 100,
-                child: Icon(Icons.account_box_sharp),
+                width: 60,
+                height: 60,
               ),
               SizedBox(
                 width: 30,
@@ -43,10 +45,25 @@ class Card_Auth_Other extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.amber,
+                  image: DecorationImage(
+                      image: AssetImage("Assets/images/facebook.jpeg"),
+                      fit: BoxFit.cover),
                 ),
-                width: 100,
-                height: 100,
-                child: Icon(Icons.account_box_sharp),
+                width: 60,
+                height: 60,
+              ),
+              SizedBox(
+                width: 30,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                      image: AssetImage("Assets/images/ios.png"),
+                      fit: BoxFit.cover),
+                ),
+                width: 50,
+                height: 50,
               ),
             ],
           ),
