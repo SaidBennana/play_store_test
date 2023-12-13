@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Card_Auth_Other extends StatelessWidget {
   const Card_Auth_Other({
@@ -17,7 +18,9 @@ class Card_Auth_Other extends StatelessWidget {
             children: [
               Text(
                 "OR",
-                style: TextStyle(fontSize: 17),
+                style: TextStyle(
+                    color: Get.isDarkMode ? Colors.white : Colors.black87,
+                    fontSize: 17),
               ),
             ],
           ),

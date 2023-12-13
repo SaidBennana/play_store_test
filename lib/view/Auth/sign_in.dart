@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:play_store_test/widgets/Button_auth.dart';
+import 'package:play_store_test/widgets/FiledText.dart';
 
 import '../../widgets/Other_Auth.dart';
 
@@ -34,67 +35,26 @@ class Sign_in extends StatelessWidget {
                           Text(
                             "Sign In",
                             style: TextStyle(
-                                fontSize: 30, fontWeight: FontWeight.bold),
+                                color: Get.isDarkMode
+                                    ? Colors.white
+                                    : Colors.black87,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold),
                           ),
                           Text(
                             "Signin to continue using the app  ",
                             style: TextStyle(
+                                color: Get.isDarkMode
+                                    ? Colors.white
+                                    : Colors.black87,
                                 fontSize: 20,
-                                color: Colors.black38,
                                 fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),
                     ),
-                    Text(
-                      "Email:",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    SizedBox(
-                      height: 60,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.black.withOpacity(.05),
-                          hintText: "Enter Your Email",
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Password:",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    SizedBox(
-                      height: 60,
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: Colors.black.withOpacity(.05),
-                          hintText: "Enter Password",
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                      ),
-                    ),
+                    FiledText(fildName: "Email", hintName: "Enter youe Email"),
+                    FiledText(fildName: "Password", hintName: "Enter Password"),
                     Padding(
                       padding: const EdgeInsets.all(10),
                       child: Row(

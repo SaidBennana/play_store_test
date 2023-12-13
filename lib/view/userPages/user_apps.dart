@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../widgets/DrawerMenu.dart';
 import '../../widgets/card_home.dart';
 
 class user_apps extends StatelessWidget {
@@ -56,7 +54,9 @@ class user_apps extends StatelessWidget {
                   initialItemCount: 6,
                   itemBuilder: (context, index, animation) {
                     print(index);
-                    return cardItems_home();
+                    return cardItems_home(
+                      Can_select_valid_email: false,
+                    );
                   }),
             ),
           ],

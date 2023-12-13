@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:play_store_test/widgets/Button_auth.dart';
 
 class verfayEmail extends StatelessWidget {
@@ -25,13 +26,19 @@ class verfayEmail extends StatelessWidget {
             ),
             Text(
               "Verify your email",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: Get.isDarkMode ? Colors.white : Colors.black87,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Text(
                 "You will receive a message in the email you registered with",
-                style: TextStyle(fontSize: 10),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: Get.isDarkMode ? Colors.white : Colors.black87,
+                    fontSize: 15),
               ),
             ),
             Padding(

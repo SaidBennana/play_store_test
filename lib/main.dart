@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:play_store_test/view/Auth/verfay_email.dart';
+import 'package:play_store_test/view/userPages/app_page.dart';
 import 'package:play_store_test/view/userPages/homeScreen.dart';
 import 'package:play_store_test/view/userPages/user_apps.dart';
 import 'view/Auth/sign_up.dart';
@@ -17,12 +19,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themes.dark,
-      initialRoute: "/User_apps",
+      initialRoute: "app_page",
       getPages: [
         GetPage(name: "/sign_in", page: () => const Sign_in()),
         GetPage(name: "/sign_up", page: () => const Sign_up()),
+        GetPage(name: "/verfiyEmail", page: () => verfayEmail()),
         GetPage(name: "/HomeScreen", page: () => homeScreen()),
         GetPage(name: "/User_apps", page: () => user_apps()),
+        GetPage(name: "/app_page", page: () => app_page()),
       ],
     );
   }
