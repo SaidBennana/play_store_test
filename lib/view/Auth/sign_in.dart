@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:play_store_test/widgets/Button_auth.dart';
 
 import '../../widgets/Other_Auth.dart';
@@ -96,15 +97,27 @@ class Sign_in extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10),
-                      child: InkWell(
-                        onTap: () {},
-                        child: Text("Forgot your password?"),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Get.offNamed("/sign_up");
+                            },
+                            child: Text("Create Account!"),
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: Text("Forgot your password?"),
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(
                       height: 20,
                     ),
                     Button_auth(
+                      buttonColor: Colors.blue[400]!,
                       name: "Sign In",
                     ),
                     Card_Auth_Other(),
