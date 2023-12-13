@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:play_store_test/view/userPages/homeScreen.dart';
+import 'package:play_store_test/view/userPages/user_apps.dart';
 import 'view/Auth/sign_up.dart';
 import 'view/Auth/sign_in.dart';
 
@@ -15,12 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: themes.light,
-      initialRoute: "HomeScreen",
+      theme: themes.dark,
+      initialRoute: "/User_apps",
       getPages: [
         GetPage(name: "/sign_in", page: () => const Sign_in()),
         GetPage(name: "/sign_up", page: () => const Sign_up()),
         GetPage(name: "/HomeScreen", page: () => homeScreen()),
+        GetPage(name: "/User_apps", page: () => user_apps()),
       ],
     );
   }

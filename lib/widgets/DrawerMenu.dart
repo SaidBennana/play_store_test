@@ -43,6 +43,7 @@ class DrawerMenu extends StatelessWidget {
                       Text(
                         "Said bemnnan",
                         style: TextStyle(
+                          color: Get.isDarkMode ? Colors.white : Colors.black,
                           fontFamily: "Asap",
                           fontWeight: FontWeight.bold,
                         ),
@@ -131,77 +132,60 @@ class buttons_list_menu extends StatelessWidget {
         width: double.infinity,
         child: ListView(
           children: [
-            InkWell(
-              onTap: () {},
-              child: Card(
-                child: ListTile(
-                  leading: Icon(
-                    Icons.home,
-                  ),
-                  title: Text(
-                    "Home",
-                    style: themes.light.textTheme.bodySmall,
-                  ),
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: Card(
-                child: ListTile(
-                  leading: Icon(
-                    Icons.apps_rounded,
-                  ),
-                  title: Text(
-                    "Your apps",
-                    style: themes.light.textTheme.bodySmall,
-                  ),
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: Card(
-                child: ListTile(
-                  leading: Icon(
-                    Icons.settings,
-                  ),
-                  title: Text(
-                    "Settings",
-                    style: themes.light.textTheme.bodySmall,
-                  ),
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: Card(
-                child: ListTile(
-                  leading: Icon(
-                    Icons.support_agent,
-                  ),
-                  title: Text(
-                    "Support & help",
-                    style: themes.light.textTheme.bodySmall,
-                  ),
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: Card(
-                child: ListTile(
-                  leading: Icon(
-                    Icons.logout,
-                  ),
-                  title: Text(
-                    "log out",
-                    style: themes.light.textTheme.bodySmall,
-                  ),
-                ),
-              ),
-            ),
+            button_mune(
+                name: "Home",
+                icon: Icon(Icons.home),
+                onTap: () {
+                  print("home");
+                }),
+            button_mune(
+                name: "Your Apps",
+                icon: Icon(Icons.apps_rounded),
+                onTap: () {
+                  Get.toNamed("User_apps");
+                }),
+            button_mune(
+                name: "Settings",
+                icon: Icon(Icons.settings),
+                onTap: () {
+                  print("your4");
+                }),
+            button_mune(
+                name: "Support & Help",
+                icon: Icon(Icons.support_agent),
+                onTap: () {
+                  print("your6");
+                }),
+            button_mune(
+                name: "log out",
+                icon: Icon(Icons.logout),
+                onTap: () {
+                  print("your7");
+                }),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class button_mune extends StatelessWidget {
+  const button_mune(
+      {super.key, required this.name, required this.icon, required this.onTap});
+  final String name;
+  final Icon icon;
+  final VoidCallback onTap;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Card(
+        child: ListTile(
+          leading: icon,
+          title: Text(
+            name,
+            style: themes.light.textTheme.bodySmall,
+          ),
         ),
       ),
     );

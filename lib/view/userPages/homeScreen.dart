@@ -102,15 +102,16 @@ class homeScreen extends StatelessWidget {
                 ),
               ]),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 20),
-              height: Get.height * .6,
-              child: AnimatedList(
-                  initialItemCount: 6,
-                  itemBuilder: (context, index, animation) {
-                    print(index);
-                    return cardItems_home();
-                  }),
+            Expanded(
+              child: Container(
+                margin: EdgeInsets.only(top: 20),
+                child: AnimatedList(
+                    initialItemCount: 6,
+                    itemBuilder: (context, index, animation) {
+                      print(index);
+                      return cardItems_home();
+                    }),
+              ),
             ),
           ],
         ),
