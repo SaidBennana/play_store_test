@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:play_store_test/view/Auth/verfay_email.dart';
 import 'package:play_store_test/view/userPages/homeScreen.dart';
 import 'view/Auth/sign_up.dart';
 import 'view/Auth/sign_in.dart';
@@ -16,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: themes.light,
       initialRoute: "HomeScreen",
       getPages: [
         GetPage(name: "/sign_in", page: () => const Sign_in()),
@@ -24,4 +24,21 @@ class MyApp extends StatelessWidget {
       ],
     );
   }
+}
+
+class themes {
+  static ThemeData light = ThemeData.light().copyWith(
+    textTheme: TextTheme(
+      bodySmall: TextStyle(
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+  );
+  static ThemeData dark = ThemeData.dark().copyWith(
+    textTheme: TextTheme(
+      bodySmall: TextStyle(
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+  );
 }
