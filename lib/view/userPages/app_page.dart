@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:play_store_test/widgets/Button_auth.dart';
 import 'package:play_store_test/widgets/FiledText.dart';
+import '../../controlle/Auth/feildForm.dart';
 import '../../widgets/card_home.dart';
 
+// ignore: must_be_immutable
 class app_page extends StatelessWidget {
-  const app_page({super.key});
+  app_page({super.key});
   final Is_user_apps = true;
+
+  field_controlle filed_controlle = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -16,38 +19,7 @@ class app_page extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () async {
-              await Get.bottomSheet(
-                Container(
-                  padding: EdgeInsets.all(10),
-                  color: Colors.white,
-                  width: double.infinity,
-                  height: Get.height,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      FiledText(
-                          fildName: "App Name",
-                          hintName: "Enter your app name"),
-                      FiledText(
-                          fildName: "App link",
-                          hintName: "Enter your app link"),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text("ADD"),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                    ],
-                  ),
-                ),
-                isScrollControlled: true,
-                barrierColor: Colors.blue[500],
-                backgroundColor: Colors.black,
-              );
+              await bottomSheet_ad_apk();
             },
             icon: Icon(Icons.add),
             color: Colors.white,
@@ -89,6 +61,83 @@ class app_page extends StatelessWidget {
     );
   }
 
+  Future<dynamic> bottomSheet_ad_apk() {
+    return Get.bottomSheet(
+      SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.only(top: 40, left: 20, right: 20),
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                  "40 will be deducted from your balance when adding the application"),
+              SizedBox(
+                height: 30,
+              ),
+              FiledText(
+                valied: (Value) {
+                  return filed_controlle.validing(Value!, 50, 10);
+                },
+                fildName: "App Name",
+                hintName: "Enter your app name",
+                onChange: (vlaue) {},
+              ),
+              FiledText(
+                valied: (Value) {
+                  return filed_controlle.validing(Value!, 50, 10);
+                },
+                fildName: "App link",
+                hintName: "Enter your app link",
+                onChange: (vlaue) {},
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                width: 200,
+                child: MaterialButton(
+                  height: 50,
+                  color: Color(0xff427D9D),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Icon(
+                        Icons.image,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        "Add image App",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text("ADD"),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
+        ),
+      ),
+      backgroundColor: Get.isDarkMode ? Colors.black : Colors.white,
+      isScrollControlled: true,
+    );
+  }
+
   Padding cardInfo(String index, Icon icon) {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
@@ -112,7 +161,6 @@ class app_page extends StatelessWidget {
         child: AnimatedList(
             initialItemCount: 6,
             itemBuilder: (context, index, animation) {
-              print(index);
               return cardItems_home(
                 Can_select_valid_email: true,
               );

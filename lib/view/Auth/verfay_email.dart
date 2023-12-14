@@ -1,8 +1,10 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:play_store_test/Get_serves/setting_services.dart';
 import 'package:play_store_test/widgets/Button_auth.dart';
 
-class verfayEmail extends StatelessWidget {
+class verfayEmail extends GetView<setting_services> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +46,20 @@ class verfayEmail extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 40),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () async {
+                  if (!controller.auth.currentUser!.emailVerified) {
+                    await controller.auth.currentUser!.sendEmailVerification();
+                    AwesomeDialog(
+                        context: context,
+                        dialogType: DialogType.info,
+                        animType: AnimType.bottomSlide,
+                        title: "Virfiy Email",
+                        desc: "تحقق من بريدك الاكترني")
+                      ..show();
+                  } else {
+                    Get.offNamed("sign_in");
+                  }
+                },
                 child: Text(
                   "Resend Code",
                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -54,7 +69,11 @@ class verfayEmail extends StatelessWidget {
             SizedBox(
               width: 200,
               child: Button_auth(
-                  name: "Confirm email", buttonColor: Color(0xff5FBDFF)),
+                  onPrass: () {
+                    Get.offNamed("sign_in");
+                  },
+                  name: "Sign In",
+                  buttonColor: Color(0xff5FBDFF)),
             ),
             SizedBox(
               height: 40,

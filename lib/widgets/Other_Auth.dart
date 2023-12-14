@@ -32,7 +32,7 @@ class Card_Auth_Other extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(30),
                   color: Colors.amber,
                   image: DecorationImage(
                     image: AssetImage("Assets/images/google.png"),
@@ -46,7 +46,7 @@ class Card_Auth_Other extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(30),
                   color: Colors.amber,
                   image: DecorationImage(
                       image: AssetImage("Assets/images/facebook.jpeg"),
@@ -60,7 +60,7 @@ class Card_Auth_Other extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.circular(30),
                   image: DecorationImage(
                       image: AssetImage("Assets/images/ios.png"),
                       fit: BoxFit.cover),

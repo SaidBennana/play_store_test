@@ -5,9 +5,11 @@ class Button_auth extends StatelessWidget {
     super.key,
     required this.name,
     required this.buttonColor,
+    required this.onPrass,
   });
   final name;
   final Color buttonColor;
+  final VoidCallback onPrass;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +20,7 @@ class Button_auth extends StatelessWidget {
       ),
       height: 40,
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: onPrass,
         child: Text(
           name,
           style: TextStyle(

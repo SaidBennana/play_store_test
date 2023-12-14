@@ -1,12 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:play_store_test/Get_serves/setting_services.dart';
 
+import '../../controlle/Auth/feildForm.dart';
 import '../../widgets/Button_auth.dart';
 import '../../widgets/FiledText.dart';
 import '../../widgets/Other_Auth.dart';
+// StatelessWidget
 
-class Sign_up extends StatelessWidget {
-  const Sign_up({super.key});
+// ignore: must_be_immutable
+class Sign_up extends GetView<setting_services> {
+  Sign_up({super.key});
+
+  late String email;
+  late String user_name;
+  late String password;
+
+  GlobalKey<FormState> formState = GlobalKey<FormState>();
+  field_controlle filed_controlle = Get.find();
+
+  sginUp() async {
+    if (formState.currentState!.validate()) {
+      await controller.signUp(email, password);
+      if (!controller.auth.currentUser!.emailVerified) {
+        await controller.auth.currentUser!.sendEmailVerification();
+        Get.offNamed("verfiyEmail");
+      }
+      print("Sign up");
+    } else {
+      print("is Not valied");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +41,11 @@ class Sign_up extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 230,
+              height: 200,
               child: Image.asset("Assets/images/image_2.png"),
             ),
             Form(
+              key: formState,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
@@ -42,7 +67,7 @@ class Sign_up extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            "SignUp to continue using the app  ",
+                            "SignUp to continue using the app",
                             style: TextStyle(
                                 color: Get.isDarkMode
                                     ? Colors.white
@@ -54,9 +79,36 @@ class Sign_up extends StatelessWidget {
                       ),
                     ),
                     FiledText(
-                        fildName: "username", hintName: "Enter youe name"),
-                    FiledText(fildName: "Email", hintName: "Enter youe Email"),
-                    FiledText(fildName: "Password", hintName: "Enter Password"),
+                      valied: (Value) {
+                        return filed_controlle.validing(Value!, 50, 10);
+                      },
+                      fildName: "username",
+                      hintName: "Enter youe name",
+                      onChange: (value) {
+                        user_name = value;
+                      },
+                    ),
+                    FiledText(
+                      valied: (Value) {
+                        return filed_controlle.validing(Value!, 50, 10);
+                      },
+                      fildName: "Email",
+                      hintName: "Enter youe Email",
+                      onChange: (value) {
+                        email = value;
+                      },
+                    ),
+                    FiledText(
+                      fildName: "Password",
+                      hintName: "Enter Password",
+                      onChange: (value) {
+                        password = value;
+                      },
+                      valied: (Value) {
+                        print(Value);
+                        return filed_controlle.validing(Value!, 50, 10);
+                      },
+                    ),
                     Padding(
                         padding: const EdgeInsets.all(10),
                         child: InkWell(
@@ -71,6 +123,9 @@ class Sign_up extends StatelessWidget {
                       height: 20,
                     ),
                     Button_auth(
+                      onPrass: () async {
+                        await sginUp();
+                      },
                       buttonColor: Colors.blue[400]!,
                       name: "Sign Up",
                     ),

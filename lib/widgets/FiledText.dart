@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FiledText extends StatelessWidget {
-  const FiledText({
+  FiledText({
     super.key,
     required this.fildName,
     required this.hintName,
+    required this.onChange,
+    required this.valied,
   });
   final fildName;
   final hintName;
+  final Function(String) onChange;
+  final String? Function(String?)? valied;
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +30,19 @@ class FiledText extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        SizedBox(
-          height: 50,
-          child: TextFormField(
-            style:
-                TextStyle(color: Get.isDarkMode ? Colors.white : Colors.black),
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.black.withOpacity(.05),
-              hintText: hintName,
-              border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(20.0),
-              ),
+        TextFormField(
+          validator: valied,
+          style: TextStyle(color: Get.isDarkMode ? Colors.white : Colors.black),
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.black.withOpacity(.4),
+            hintText: hintName,
+            border: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(20.0),
             ),
           ),
+          onChanged: onChange,
         ),
       ]),
     );
