@@ -63,10 +63,17 @@ class restart_password extends GetView<setting_services> {
                       try {
                         await sendRester();
                         AwesomeDialog(
-                            context: context,
-                            dialogType: DialogType.info,
-                            desc: "لقد تما ارسال الرايط لاعادة كلمة السر")
-                          ..show();
+                          context: context,
+                          dialogType: DialogType.info,
+                          dismissOnTouchOutside: false,
+                          btnOk: TextButton(
+                            child: Text("OK"),
+                            onPressed: () {
+                              Get.offNamed("sign_in");
+                            },
+                          ),
+                          desc: "لقد تما ارسال الرابط لاعادة كلمة السر",
+                        )..show();
                       } catch (e) {
                         AwesomeDialog(
                             context: context,

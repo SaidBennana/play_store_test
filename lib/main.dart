@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:play_store_test/Get_serves/setting_services.dart';
+import 'package:play_store_test/middelware/middel_auth.dart';
 import 'package:play_store_test/utils/binding.dart';
 import 'package:play_store_test/view/Auth/restart_Password.dart';
 import 'package:play_store_test/view/Auth/verfay_email.dart';
@@ -28,11 +29,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themes.dark,
-      initialRoute: "restart_pass",
+      initialRoute: "sign_up",
       initialBinding: myBanding(),
       getPages: [
+        GetPage(
+            name: "/sign_up",
+            page: () => Sign_up(),
+            middlewares: [middleware_log_in()]),
         GetPage(name: "/sign_in", page: () => Sign_in()),
-        GetPage(name: "/sign_up", page: () => Sign_up()),
         GetPage(name: "/verfiyEmail", page: () => verfayEmail()),
         GetPage(name: "/restart_pass", page: () => restart_password()),
         GetPage(name: "/HomeScreen", page: () => homeScreen()),

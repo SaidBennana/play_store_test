@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:play_store_test/Get_serves/setting_services.dart';
 import 'package:play_store_test/main.dart';
 
 class DrawerMenu extends StatelessWidget {
@@ -120,7 +121,7 @@ class DrawerMenu extends StatelessWidget {
   }
 }
 
-class buttons_list_menu extends StatelessWidget {
+class buttons_list_menu extends GetView<setting_services> {
   const buttons_list_menu({
     super.key,
   });
@@ -159,8 +160,9 @@ class buttons_list_menu extends StatelessWidget {
             button_mune(
                 name: "log out",
                 icon: Icon(Icons.logout),
-                onTap: () {
-                  print("your7");
+                onTap: () async {
+                  await controller.auth.signOut();
+                  Get.offNamed("sign_up");
                 }),
           ],
         ),

@@ -102,7 +102,9 @@ class Sign_in extends GetView<setting_services> {
                             child: Text("Create Account!"),
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Get.offNamed("restart_pass");
+                            },
                             child: Text("Forgot your password?"),
                           ),
                         ],

@@ -4,10 +4,21 @@ import 'package:get/get.dart';
 
 class setting_services extends GetxService {
   late FirebaseAuth auth;
+  late bool curent;
+
+  user_curent() {
+    final user = auth.currentUser;
+    if (user != null) {
+      curent = true;
+    } else {
+      curent = false;
+    }
+  }
 
   Future<setting_services> init() async {
     await Firebase.initializeApp();
     auth = await FirebaseAuth.instance;
+    user_curent();
     return this;
   }
 
